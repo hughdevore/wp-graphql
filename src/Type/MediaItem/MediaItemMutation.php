@@ -82,7 +82,7 @@ class MediaItemMutation {
 				],
 				'parentId'      => [
 					'type'        => Types::id(),
-					'description' => __( 'The ID of the parent object', 'wp-graphql' ),
+					'description' => __( 'The WordPress post ID of the parent object', 'wp-graphql' ),
 				],
 			];
 
@@ -172,8 +172,11 @@ class MediaItemMutation {
 			$insert_post_args['post_mime_type'] = $input['fileType'];
 		}
 
-		$parent_id_parts = ( ! empty( $input['parentId'] ) ? Relay::fromGlobalId( $input['parentId'] ) : null );
+		if ( ! empty( $input['parentId'] ) && null !== get_post( $input['parentId'] ) ) {
+			$insert_post_args['post_parent'] = $input['parentId'];
+		}
 
+		$parent_id_parts = ( ! empty( $input['parentId'] ) ? Relay::fromGlobalId( $input['parentId'] ) : null );
 		if ( is_array( $parent_id_parts ) && ! empty( $parent_id_parts['id'] ) ) {
 			$insert_post_args['post_parent'] = absint( $parent_id_parts['id'] );
 		}
