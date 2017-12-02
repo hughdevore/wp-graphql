@@ -7,11 +7,10 @@ paths:
 actor_suffix: Tester
 coverage:
     enabled: true
-    whitelist:
-      include:
-        - wp-graphql.php
-        - access-functions.php
-        - src/*.php
+    include:
+      - wp-graphql.php
+      - access-functions.php
+      - src/*.php
 
 extensions:
     enabled:
