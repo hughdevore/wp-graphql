@@ -74,8 +74,12 @@ To run unit tests and code coverage during development you'll need the following
 
 * [Composer](https://getcomposer.org/doc/00-intro.md)
     * [php-coveralls](https://github.com/php-coveralls/php-coveralls)
-        * `composer global require php-coveralls/php-coveralls`
+    * [codeception](http://codeception.com/install)
 * [Xdebug](https://xdebug.org/docs/install)
+
+If you would like to set up composer locally so that you do not need to use the vendor prefixes, you can use this helpful tutorial:
+
+https://akrabat.com/global-installation-of-php-tools-with-composer/ 
 
 ### Test Database
 In order for tests to run, you need MySQL setup locally. The test suite will need 2 databases for testing. 
