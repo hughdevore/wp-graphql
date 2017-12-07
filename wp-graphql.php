@@ -25,6 +25,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * This is required to generate coverage for functional tests
+ */
+define('C3_CODECOVERAGE_ERROR_LOG_FILE', '/tests/_output/c3_error.log');
+include '/../c3.php';
+
+define('MY_APP_STARTED', true);
+
+/**
  * This plugin brings the power of GraphQL (http://graphql.org/) to WordPress.
  *
  * This plugin is based on the hard work of Jason Bahl, Ryan Kanner, Hughie Devore and Peter Pak of Digital First Media
