@@ -7,7 +7,6 @@ paths:
 actor_suffix: Tester
 coverage:
     enabled: true
-    remote: true
     c3_url: 'http://wp.localhost/wp-graphql.php'
     include:
       - wp-graphql.php

@@ -25,14 +25,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * This is required to generate coverage for functional tests
- */
-define('C3_CODECOVERAGE_ERROR_LOG_FILE', '/tests/_output/c3_error.log');
-include '/../c3.php';
-
-define('MY_APP_STARTED', true);
-
-/**
  * This plugin brings the power of GraphQL (http://graphql.org/) to WordPress.
  *
  * This plugin is based on the hard work of Jason Bahl, Ryan Kanner, Hughie Devore and Peter Pak of Digital First Media
@@ -219,9 +211,14 @@ if ( ! class_exists( 'WPGraphQL' ) ) :
 				require_once( WPGRAPHQL_PLUGIN_DIR . 'vendor/autoload.php' );
 			}
 
-
 			// Required non-autoloaded classes
 			require_once( WPGRAPHQL_PLUGIN_DIR . 'access-functions.php' );
+
+			/**
+			 * This is required to generate coverage for functional tests
+			 */
+			define('C3_CODECOVERAGE_ERROR_LOG_FILE', '/tests/_output/c3_error.log');
+			require_once( WPGRAPHQL_PLUGIN_DIR . 'c3.php' );
 
 		}
 
