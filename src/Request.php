@@ -246,6 +246,8 @@ class Request {
 		 * @param string          $variables Variables to be passed to your GraphQL request
 		 * @param OperationParams $params    The Operation Params. This includes any extra params, such as extenions or any other modifications to the request body
 		 */
+		print_r('REQUEST PARAMS');
+		var_dump($params);
 		do_action( 'do_graphql_request', $params->query, $params->operation, $params->variables, $params );
 	}
 

@@ -148,6 +148,9 @@ class MediaItemCreate {
              * Handle the error from download_url if it occurs
              */
             if ( is_wp_error( $temp_file ) ) {
+                print_r('TEMP FILE!!!!');
+                var_dump($temp_file);
+				die();
                 throw new UserError( __( 'Sorry, the URL for this file is invalid, it must be a valid URL', 'wp-graphql' ) );
             }
 
@@ -180,6 +183,16 @@ class MediaItemCreate {
              * Handle the error from wp_handle_sideload if it occurs
              */
             if ( ! empty( $file['error'] ) ) {
+                print_r('TEMP FILE!!!!');
+                var_dump($temp_file);
+                print_r('FILE DATA!!!!!');
+                var_dump($file_data);
+                print_r('FILE!!!!!');
+                var_dump($file);
+                $new_file = wp_handle_upload($file_data, $overrides );
+                print_r('NEW FILE!!!!!');
+                var_dump($new_file);
+				die();
                 throw new UserError( __( 'Sorry, the URL for this file is invalid, it must be a path to the mediaItem file', 'wp-graphql' ) );
             }
 
